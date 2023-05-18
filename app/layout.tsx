@@ -1,7 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 
-import Topbar from './components/Topbar'
+import Topbar from './components/topbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,11 +17,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className=" bg-gray-900">
         
         <main >
-          <Topbar />
-          {children}
+          <div>
+            <Topbar />
+          </div>
+          <div>
+            {children}
+          </div>
         </main>
       </body>
     </html>

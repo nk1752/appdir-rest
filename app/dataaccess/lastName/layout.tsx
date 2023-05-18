@@ -1,4 +1,4 @@
-import Sidebar from "../sidebar";
+import Sidebar from "../components/sidebar";
 import GetData from "./getdata";
 
 export default function NameLayout({

@@ -1,6 +1,11 @@
 export default function AuthHome() {
-
+  
     return (
-        <h1>Auth Home Page</h1>
+      <main className=" text-white ">
+        <div className={'text-3xl'}>
+          <h1>Auth Main Page</h1>
+        </div>
+      </main>
     )
-}
+  }
+  
