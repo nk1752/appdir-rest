@@ -15,7 +15,7 @@ export default function SignOut() {
     return (
         
         <button
-            className="ring ring-offset-1 ring-blue-800 w-24 h-10 bg-gray-900 rounded-md"
+            className="ring ring-offset-2 ring-gray-900 w-24 h-10 bg-gray-400 text-black font-bold rounded-md"
             onClick={handleSignOut}
             >
             sign out
