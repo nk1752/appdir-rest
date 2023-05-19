@@ -17,15 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className=" bg-gray-900">
-        
+      <body className=" bg-pink-900">  
         <main >
-          <div>
             <Topbar />
-          </div>
-          <div>
             {children}
-          </div>
         </main>
       </body>
     </html>

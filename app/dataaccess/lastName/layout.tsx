@@ -1,23 +1,17 @@
 import LastNameCard from "../components/lastNameCard";
 
-export default function NameLayout({
+export default function LastNameLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <div>
-      <div className=" flex flex-col overflow-y-hidden ">
-        
-         <div >
-            <LastNameCard />
-         </div>
-         <div >
-            { children }
-         </div>
-        
+    <main className=" flex flex-col ">
+      <div className=" ">
+        <LastNameCard />
       </div>
-    </div>      
-        
+
+      <div className=" ">{children}</div>
+    </main>
   );
 }

@@ -1,4 +1,5 @@
 import CityCard from "./components/cityCard";
+
 export default function DataLayout({
   children,
 }: {

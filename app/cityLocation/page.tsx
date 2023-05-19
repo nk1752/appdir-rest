@@ -1,6 +1,6 @@
 async function getData(city: String) {
-
-  if (!city) return;
+  
+    if (!city) return;
 
     const url = "http://api.weatherapi.com/v1/current.json?key=ef50495ff7bd48708b0142219232003&q=" + city + "&aqi=yes"
     
@@ -37,7 +37,7 @@ async function getData(city: String) {
     return <main>{data}</main>;
     }
     else {
-      return <main>ready to search...</main>
+      return <main>city server component ready to search...</main>
     }
     
   }

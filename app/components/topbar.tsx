@@ -7,7 +7,7 @@ import SignOut from "./signOut";
 export default function Topbar() {
 
     return (
-        <div className=" flex flex-row h-24 bg-gradient-to-l from-green-900 to-green-400 w-full text-black ">   
+        <div className=" flex flex-row h-24 bg-gradient-to-r from-gray-900 to-gray-700 w-full text-stone-100 ">   
             <div className="flex flex-row w-1/12 gap-6 place-items-center justify-center text-1xl">
                 <CurrentUser />
             </div>

@@ -7,14 +7,13 @@ export default function AuthLayout({
   }) {
     return (
       <div>
-        <div className=" flex flex-row gap-x-1 border-2 border-gray-500 border-dashed ">
+        <div className=" flex flex-row">
           
-            <div className=" w-1/12 bg-black">
+            <div className=" flex flex-col w-1/12 ">
                 <Sidebar />
             </div>
   
-           
-            <div className=" w-11/12 bg-black">
+            <div className=" flex flex-col w-11/12 ">
                 { children }
             </div>
           
