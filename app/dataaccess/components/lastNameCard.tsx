@@ -1,40 +1,36 @@
-import { useRouter } from "next/router";
+'use client'
+
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-
 export default function LastNameCard() {
+  const [lastName, setLastName] = useState("");
+  const router = useRouter();
 
-    const [lastName, setLastName] = useState('')
-    const router = useRouter();
-
-    function handleSubmit() {
-
-
-        const url = "/lastName?lastName=" + lastName;
-        router.push(url)
+  function handleSubmit() {
+    const url = "/dataaccess/lastName?lastName=" + lastName;
+    router.push(url);
+  }
+  return (
+    <div className=" flex flex-col  ">
+      
+        <div className=" ">Find By User Last Name</div>
+       
+        <label>
+          Last Name:{" "}
+          <input type="text" value={lastName} required onChange={(e) => setLastName(e.target.value)}/>
+        </label>
         
-
-    }
-
-    return (
-        <div>
-            <form  className=" bg-slate-50">
-                
-            <div>
-                <form  className={" bg-slate-400"} >
-                    <p>Find By User Last Name</p><br />
-                    <label>Last Name: <input  type="text" value={lastName} required onChange={(e) => setLastName(e.target.value)} />  </label><br /><br />
-                    <button
-                        className=" ring ring-offset-2 ring-gray-900 w-24 h-10 bg-gray-400 text-black font-bold rounded-md "
-                        type='button'
-                        onClick={ handleSubmit }
-                    >Submit
-                    </button><br /><br />
-                </form>
-            </div>
-          
-            </form>
-
-        </div>
-    )
+        
+        <button
+          className=" ring ring-offset-2 ring-blue-800 w-24 h-10 bg-gray-500 rounded-md "
+          type="button"
+          onClick={handleSubmit}
+        >
+          Submit
+        </button>
+        
+       
+    </div>
+  );
 }

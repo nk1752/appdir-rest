@@ -1,5 +1,4 @@
-import Sidebar from "../components/sidebar";
-import GetData from "./getdata";
+import LastNameCard from "../components/lastNameCard";
 
 export default function NameLayout({
   children,
@@ -8,20 +7,17 @@ export default function NameLayout({
 }) {
   return (
     <div>
-      <div className=" flex flex-row space-x-1 space-y-1 overflow-y-hidden ">
+      <div className=" flex flex-col overflow-y-hidden ">
         
-         <div className=" w-4/12 bg-black">
+         <div >
+            <LastNameCard />
+         </div>
+         <div >
             { children }
          </div>
         
-        
-        
-        
       </div>
-    </div>
-    
-        
-            
+    </div>      
         
   );
 }

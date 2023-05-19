@@ -1,6 +1,6 @@
-async function getData(lastname: String) {
+async function getData(city: String) {
 
-  if (!lastname) return;
+  if (!city) return;
 
     const url = "http://api.weatherapi.com/v1/current.json?key=ef50495ff7bd48708b0142219232003&q=" + city + "&aqi=yes"
     
@@ -23,15 +23,15 @@ async function getData(lastname: String) {
     return res.json();
   }
    
-  export default async function Page({searchParams}: {searchParams:{lastname: String}}) {
+  export default async function Page({searchParams}: {searchParams:{city: String}}) {
 
-    const city = searchParams.lastname;
+    const city = searchParams.city;
     if (city) {
       console.log(searchParams)
-    console.log(searchParams.lastname)
+    console.log(searchParams.city)
     
     const obj = await getData(city);
-    const data = JSON.stringify(obj)
+    const data = JSON.stringify(obj.location.name) + JSON.stringify(obj.location.country)
     console.log(data)
 
     return <main>{data}</main>;

@@ -1,7 +1,6 @@
 import { cookies } from 'next/headers';
 
-export default function LastNameHome() {
-
+async function getUserById() {
     const cognitoId = process.env.COGNITO_ID;
 
     const cookieStore = cookies();
@@ -20,41 +19,39 @@ export default function LastNameHome() {
     if (cognitoId && currentUser) {
         url = cognitoId + currentUser;
     }
+    else
+        return "fetch url error"
 
+   
+    // The return value is *not* serialized
+    // You can return Date, Map, Set, etc.
+    const res = await fetch(url, {
+        method: 'GET',
+        mode: 'cors',
+        headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + accessToken,
+            }
+        });
+         
+    if (!res.ok) {
+        // This will activate the closest `error.js` Error Boundary
+        throw new Error('Failed to fetch data');
+    }   
 
-    async function getUserById() {
+    return res.json();
+}
 
-        try {
-            const response = await fetch(url, {
-                method: 'GET',
-                mode: 'cors',
-                headers: { 
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + accessToken,
-            
-                    }
-                });
-    
-                // parses JSON response into native JavaScript objects
-                const obj = await response.json();
-                //console.log(await obj)
-                const data = JSON.stringify(obj, null, 2)
-                console.log(data)
-                
-        } catch (error) {
-            console.error("error =>", error)
-            
-        }   
+export default async function LastNameHome(props: any) { 
 
-    }
-    
+    console.log(props)
+    const obj = await getUserById();
+    const data = JSON.stringify(obj, null, 2)
+    console.log(data)
+
     return (
-
-        <div className=" bg-black text-green-400 font-mono text-lg">
-
-            This is a test
-            
-        </div>
-
+        <main className=" bg-black text-green-400 font-mono text-lg min-h-screen ">
+            {data}
+        </main>
     )
 }

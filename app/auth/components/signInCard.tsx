@@ -1,3 +1,5 @@
+'use client'
+
 import { setCookie } from "cookies-next";
 import { useState } from "react";
 import {Amplify, Auth} from 'aws-amplify'
@@ -37,8 +39,8 @@ export default function SignInCard() {
 
     return (
 
-        <div className={styles.right} > 
-            <form  className={styles.card} >
+        <div className=" bg-slate-100" > 
+            <form  className=" bg-white" >
                 
                 <h2>SIGN IN</h2><br />
                 <label>Username: <input  type="text" value={username}  onChange={(e) => setUsername(e.target.value)} />  </label><br />

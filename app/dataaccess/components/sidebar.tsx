@@ -3,12 +3,10 @@ import Link from "next/link"
 export default function Sidebar() {
 
     return (       
-        <main className=" flex flex-col bg-black text-white h-[calc(100vh-96px)] text-center gap-4 border-4 border-gray-500">
+        <main className=" flex flex-col bg-black h-[calc(100vh-96px)] gap-6  place-items-center justify-center text-white text-center border-gray-700 border-2">
             
             <div className=" text-amber-300">
-                <br />
                 <h2>Query by</h2>
-                <br />
             </div>
             <div>
                 <h2><Link href="/dataaccess/id">Id</Link></h2>
