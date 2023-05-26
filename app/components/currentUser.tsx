@@ -1,6 +1,15 @@
+
+import { getCookie } from "cookies-next";
+import { cookies } from 'next/headers';
+
 export default function CurrentUser() {
 
+    const cookieStore = cookies();
+    
+    const currentUser = cookieStore.get('currentUser')?.value;
+       
     return (
-        <div>Nadeem</div>
+        <div>  { currentUser }   </div>
+        
     )
 }

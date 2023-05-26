@@ -9,7 +9,7 @@ export default function Sidebar() {
         </div>
         <div>
           <h2>
-            <Link href="/auth/sigup">Sign Up</Link>
+            <Link href="/auth/signup">Sign Up</Link>
           </h2>
         </div>
         <div>

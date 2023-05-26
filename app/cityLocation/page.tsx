@@ -23,21 +23,24 @@ async function getData(city: String) {
     return res.json();
   }
    
-  export default async function Page({searchParams}: {searchParams:{city: String}}) {
+export default async function Page({
+    searchParams
+}: {
+    searchParams:{city: String}
+}) {
 
     const city = searchParams.city;
     if (city) {
-      console.log(searchParams)
-    console.log(searchParams.city)
+        console.log(searchParams)
+        console.log(searchParams.city)
     
-    const obj = await getData(city);
-    const data = JSON.stringify(obj.location.name) + JSON.stringify(obj.location.country)
-    console.log(data)
+        const obj = await getData(city);
+        const data = JSON.stringify(obj.location.name) + JSON.stringify(obj.location.country)
+        console.log(data)
 
-    return <main>{data}</main>;
+        return <main>{data}</main>;
     }
-    else {
-      return <main>city server component ready to search...</main>
-    }
-    
-  }
+        else {
+            return <main>city server component ready to search...</main>
+        }    
+}

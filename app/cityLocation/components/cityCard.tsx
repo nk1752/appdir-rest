@@ -21,7 +21,6 @@ export default function CityCard() {
       
         <form className="flex flex-col  bg-sky-300 w-1/12 min-w-min h-48 min-h-full">      
           
-          
           <input
               type="text"
               id="city"
@@ -29,10 +28,7 @@ export default function CityCard() {
               name="city"
               placeholder="Birmingham"
               onChange={(e) => setCity(e.target.value)}
-            />
-          
-          
-            
+            /> 
           
             <button  className="ring ring-offset-2 ring-blue-800 w-20 h-8 bg-gray-500 rounded-md "
                 type="button"

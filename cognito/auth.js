@@ -6,10 +6,13 @@ Amplify.configure(config)
 
 export async function SignOutUser() {
     try {
-        await Auth.signOut();
-        console.log('signing out...')
+        const sign = await Auth.signOut();
+        alert('signing out...')
+        
         
     } catch (error) {
         console.log('error signing out: ', error);
     }
   }
+
+ 

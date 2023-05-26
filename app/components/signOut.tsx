@@ -1,17 +1,34 @@
 'use client'
 
+import { deleteCookie, getCookie, hasCookie, setCookie } from 'cookies-next'
 import {Amplify, Auth} from 'aws-amplify'
 import config from '@/cognito/cognito-config'
+
+import { useRouter } from 'next/navigation'
+
+
 
 Amplify.configure(config)
 
 
 export default function SignOut() {
 
-    function handleSignOut() {
-        SignOut()
-        alert('signing out...')
+    const router = useRouter();
+
+    async function handleSignOut() {   
+             
+        
+        const so = await Auth.signOut()
+        .then((msg) => console.log(msg))
+        .catch(() => console.log('error'))
+        console.log('sign out', so)
+        
+        // clear cookies
+        deleteCookie('currentUser')
+        deleteCookie('jwtToken')    
     }
+
+    //router.refresh();
 
     return (
         
