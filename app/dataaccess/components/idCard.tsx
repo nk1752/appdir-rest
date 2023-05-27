@@ -1,29 +1,32 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
-export default function LastNameCard() {
-  const [lastname, setLastname] = useState("");
+export default function IdCard() {
+  
+    const idRef = useRef('')
   const router = useRouter();
 
   function handleSubmit() {
-    const url = "/dataaccess/lastName?lastname=" + lastname;
+
+    const url = "/dataaccess/id?id=" + idRef.current;
     router.push(url);
   }
 
 
   return (
+    
     <div className=" flex flex-col justify-center items-center bg-sky-500 h-[calc(100vh-96px)]  bg-gradient-to-r from-gray-900 to-gray-700">
       <form className=" flex flex-col bg-gray-800 w-72 p-4 border-4 text-stone-100 gap-4">
         <label>
-          User Last Name
+          User ID
           <input
             className=" bg-gray-800"
             type="text"
             id="code"
-            value={lastname}
-            onChange={(e) => setLastname(e.target.value)}
+            value={idRef.current}
+            onChange={(e) => idRef.current = e.target.value}
           />
         </label>
         <button

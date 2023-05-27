@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className=" bg-pink-900">  
+      <body className=" bg-purple-500">  
         <main >
             <Topbar />
             {children}

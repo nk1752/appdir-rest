@@ -11,7 +11,7 @@ export default function DataLayout({
             <Sidebar />
         </div>
 
-        <div className=" flex flex-col w-11/12 ">
+        <div className=" flex flex-col w-11/12">
             {children}
         </div>
     </main>

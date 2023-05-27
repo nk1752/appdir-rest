@@ -41,6 +41,6 @@ export default async function Page({
         return <main>{data}</main>;
     }
         else {
-            return <main>city server component ready to search...</main>
+            return <main>City server component ready to search...</main>
         }    
 }

@@ -6,19 +6,19 @@ async function getUserByLastName(lastname: String) {
 
     if (!lastname) return;
     
-    const cognitoId = process.env.COGNITO_ID;
-    const cookieStore = cookies();
+    //const cognitoId = process.env.COGNITO_ID;
+    //const cookieStore = cookies();
 
-    const accessToken = cookieStore.get('jwtToken');
-    const jwtToken = accessToken?.value;
+    //const accessToken = cookieStore.get('jwtToken');
+    //const jwtToken = accessToken?.value;
     //console.log('jwtToken ====>', jwtToken)
 
-    const user = cookieStore.get('currentUser');
-    const currentUser = user?.value;
+    //const user = cookieStore.get('currentUser');
+    //const currentUser = user?.value;
     //console.log('curretUser ====>', currentUser)
   
 
-    let url = ""
+    //let url = ""
 
  //   if (cognitoId && currentUser) {
    //     url = cognitoId + currentUser;
@@ -29,7 +29,7 @@ async function getUserByLastName(lastname: String) {
    
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
-    url = "http://localhost:8080/api/user?lastname=" + lastname;
+    const url = "http://localhost:8080/api/user?lastname=" + lastname;
     console.log(url)
     const res = await fetch(url, {
         method: 'GET',
@@ -60,22 +60,29 @@ export default async function LastNameHome({
     console.log(searchParams)
     
     const lastname = searchParams.lastname;
-
     if (lastname) {
-        const obj = await getUserByLastName(lastname);
-        const data = JSON.stringify(obj, null, 2)
-        console.log('server-server-server-server-server-server-server')
-        console.log(data) 
+        
+        const obj = await getUserByLastName(lastname);   
+        
+        const data = obj.map((user: any) =>    
+           <li key={user.id}>
+                <div >
+                    first name: {user.firstName}<br />
+                    last name: {user.lastName}<br /><br/>
+                </div> 
+            </li>  
+        )
+        
 
         return (
-            <main className=" bg-black text-green-400 font-mono min-h-screen">
+            <div className=" bg-black text-green-400 font-mono min-h-screen">
                 
                 
-                {data}
-            </main>
+                <ul>{data}</ul>
+            </div>
         )
     }
         else {
-            return <main>Ready to search...</main>
+            return <div>Ready to search...</div>
         }
 }
