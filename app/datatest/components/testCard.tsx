@@ -8,7 +8,7 @@ export default function TestCard() {
   const router = useRouter();
 
   function handleSubmit() {
-    const url = "/datatest?lastname=" + lastname;
+    const url = "/datatest/lastname?lastname=" + lastname;
     router.push(url);
   }
 

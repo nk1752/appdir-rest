@@ -14,7 +14,7 @@ export default function Sidebar() {
         </div>
         <div>
           <h2>
-            <Link href="/dataaccess/lastName">Last Name</Link>
+            <Link href="/datatest/lastname">Last Name</Link>
           </h2>
         </div>
         <div>

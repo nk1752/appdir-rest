@@ -7,16 +7,13 @@ export default function DataLayout({
   children: React.ReactNode
 }) {
   return (
-      <main className=" flex flex-row h-[calc(100vh-96px)] min-w-full">     
+      <main className=" flex flex-row h-[calc(100vh-96px)] ">     
 
         <div className=" w-1/12">
             <Sidebar />
         </div>
         
-            <div className=" w-5/12">
-                <TestCard />
-            </div> 
-            <div className=" bg-black text-green-500 border-double border-8 border-gray-700 w-6/12 pl-4 h-[calc(100vh-96px)] overflow-auto">
+            <div className=" bg-black w-11/12">
                 { children }
             </div>  
         
