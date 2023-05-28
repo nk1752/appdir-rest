@@ -14,17 +14,17 @@ export default function Sidebar() {
         </div>
         <div>
           <h2>
-            <Link href="/dataaccess/lastName">Last Name</Link>
+            <Link href="/dataaccess/lastname">Last Name</Link>
           </h2>
         </div>
         <div>
           <h2>
-            <Link href="/dataaccess/firstName">First Name</Link>
+            <Link href="/dataaccess/firstname">First Name</Link>
           </h2>
         </div>
         <div>
           <h2>
-            <Link href="/dataaccess/fullName">Full Name</Link>
+            <Link href="/dataaccess/fullname">Full Name</Link>
           </h2>
         </div>
         <div>
