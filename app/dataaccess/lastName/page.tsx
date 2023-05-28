@@ -67,8 +67,10 @@ export default async function LastNameHome({
         const data = obj.map((user: any) =>    
            <li key={user.id}>
                 <div >
+                    id: {user.id}<br />
                     first name: {user.firstName}<br />
-                    last name: {user.lastName}<br /><br/>
+                    last name: {user.lastName}<br />
+                    account id: {user.accountId}<br/><br />
                 </div> 
             </li>  
         )
