@@ -19,7 +19,7 @@ async function getUserByLastName(lastname: String) {
      
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
-    const url = "http://localhost:8080/api/user?lastname=" + lastname;
+    const url = process.env.AKS_DATA_SERVICE +  "/api/user?lastname=" + lastname;
     console.log('fetch url:',url)
     
     const res = await fetch(url, {
