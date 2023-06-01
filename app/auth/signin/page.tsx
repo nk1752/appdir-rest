@@ -14,7 +14,7 @@ export default function SignInHome() {
     const [code, setCode] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [user, setUser] = useState('khalid')
+    const [user, setUser] = useState('')
     
     const [cognitoUser, setCognitoUser] = useState(null)
 

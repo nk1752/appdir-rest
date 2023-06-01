@@ -31,14 +31,29 @@ export default async function Page({
 
     const city = searchParams.city;
     if (city) {
-        console.log(searchParams)
-        console.log(searchParams.city)
+        
+        
     
         const obj = await getData(city);
-        const data = JSON.stringify(obj.location.name) + JSON.stringify(obj.location.country)
+        console.log(obj)
+        
+        const data = JSON.stringify(obj)
         console.log(data)
 
-        return <main>{data}</main>;
+        return (
+            <main>
+                <div>{data}</div><br />
+                <div>
+                    <h1>{obj.location.name} is located in {obj.location.country}</h1>
+                    <p>current temperature: {obj.current.temp_f} F</p>
+                    <p>current wind speed: {obj.current.wind_mph} mph</p>
+                    <p>current wind direction: {obj.current.wind_dir} degree</p>
+                    <p>current wind speed: {obj.current.wind_mph} mph</p>
+                    <p>current wind speed: {obj.current.wind_mph} mph</p>
+                </div>
+                
+            </main>
+        );
     }
         else {
             return <main>City server component ready to search...</main>

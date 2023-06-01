@@ -2,7 +2,14 @@ import { cookies } from "next/headers";
 import IdCard from "../components/idCard";
 
 async function getUserById(id: String) {
-  if (!id) return;
+  
+    if (!id) return;
+
+    const cookieStore = cookies();
+
+    const accessToken = cookieStore.get('jwtToken');
+    const jwtToken = accessToken?.value;
+    //console.log('jwtToken ====>', jwtToken)
 
   const url = "http://localhost:8080/api/user?id=" + id;
 
@@ -11,7 +18,7 @@ async function getUserById(id: String) {
     mode: "cors",
     headers: {
       "Content-Type": "application/json",
-      //'Authorization': 'Bearer ' + accessToken,
+      'Authorization': 'Bearer ' + jwtToken,
     },
   });
 
@@ -31,27 +38,21 @@ export default async function IdHome({
 }: {
   searchParams: { id: String };
 }) {
-  console.log(searchParams);
 
   const id = searchParams.id;
+  
   if (id) {
     const obj = await getUserById(id);
 
-    console.log(obj);
-
     return (
       <div className=" bg-black text-green-400 font-mono min-h-screen">
-        <div>
-          id: {obj.id}
-          <br />
-          first name: {obj.firstName}
-          <br />
-          last name: {obj.lastName}
-          <br />
-          account id: {obj.accountId}
-          <br />
-          <br />
-        </div>
+        <ul>
+            <li>id: {obj.id}</li>
+            <li>first name: {obj.firstName}</li>
+            <li>last name: {obj.lastName}</li>
+            <li>account id: {obj.accountId}</li>
+            <br />
+        </ul>
       </div>
     );
   } else {
