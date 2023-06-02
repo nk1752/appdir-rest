@@ -31,7 +31,7 @@ async function getStatus() {
   return await res.text();
 }
 
-export default async function IdHome() {
+export default async function DataAccessHome() {
 
     //const data = await getStatus();
     //console.log('=========obj==========>',data);
