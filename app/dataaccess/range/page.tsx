@@ -55,17 +55,11 @@ export default async function RangeHome({
 
     const data = obj.map((user: User) => (
       <li key={user.id.toString()}>
-        <div>
-          id: {user.id}
-          <br />
-          first name: {user.firstName}
-          <br />
-          last name: {user.lastName}
-          <br />
-          account id: {user.accountId}
-          <br />
-          <br />
-        </div>
+        <li>id: {user.id}</li>
+        <li>first name: {user.firstName}</li>
+        <li>last name: {user.lastName}</li>
+        <li>account id: {user.accountId}</li>
+        <br />
       </li>
     ));
 
