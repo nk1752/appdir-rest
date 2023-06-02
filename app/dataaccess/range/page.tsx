@@ -9,7 +9,7 @@ async function getUserByIdRange(id1: String, id2: String) {
   const jwtToken = accessToken?.value;
   //console.log('jwtToken ====>', jwtToken)
 
-  const url = "http://localhost:8080/api/user?id1=" + id1 + "&id2=" + id2;
+  const url = process.env.API_SERVER_URL+"/api/user?id1="+id1+"&id2="+id2;
 
   const res = await fetch(url, {
     method: "GET",
