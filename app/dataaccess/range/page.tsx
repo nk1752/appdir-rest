@@ -46,8 +46,15 @@ export default async function RangeHome({
 
     console.log('>>>> obj >>>> ',obj)
 
-    const data = obj.map((user: any) => (
-      <li key={user.id}>
+    interface User {
+        id: number
+        lastName: String
+        firstName: String
+        accountId: number
+      }
+
+    const data = obj.map((user: User) => (
+      <li key={user.id.toString()}>
         <div>
           id: {user.id}
           <br />

@@ -19,7 +19,7 @@ async function getUserByLastName(lastname: String) {
      
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
-    const url = process.env.AKS_DATA_SERVICE +  "/api/user?lastname=" + lastname;
+    const url = process.env.API_SERVER_URL +  "/api/user?lastname=" + lastname;
     console.log('fetch url:',url)
     
     const res = await fetch(url, {
@@ -52,14 +52,21 @@ export default async function LastNameHome({
 }) {
 
     console.log(searchParams)
+
+    interface User {
+        id: number
+        lastName: String
+        firstName: String
+        accountId: number
+      }
     
     const lastname = searchParams.lastname;
     if (lastname) {
         
         const obj = await getUserByLastName(lastname);   
         
-        const data = obj.map((user: any) =>    
-           <li key={user.id}>
+        const data = obj.map((user: User) =>    
+           <li key={user.id.toString()}>
                 <div >
                     id: {user.id}<br />
                     first name: {user.firstName}<br />
@@ -75,6 +82,7 @@ export default async function LastNameHome({
                 
                 
                 <ul>{data}</ul>
+                
             </div>
         )
     }

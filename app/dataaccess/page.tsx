@@ -22,10 +22,10 @@ async function getStatus() {
     throw new Error("Failed to fetch data");
   }
 
-  console.log('>>>>>>>>> analyze >>>>>>>>')
-  console.log('>>>>>>>>> body >>>>>>>>', await res.body)
-  console.log('>>>>>>>>> headers >>>>>>', await res.headers)
-  console.log('>>>>>>>>> status >>>>>>>>', await res.status)
+  //console.log('>>>>>>>>> analyze >>>>>>>>')
+  //console.log('>>>>>>>>> body >>>>>>>>', await res.body)
+  //console.log('>>>>>>>>> headers >>>>>>', await res.headers)
+  //console.log('>>>>>>>>> status >>>>>>>>', await res.status)
 
 
   return await res.text();
@@ -33,15 +33,15 @@ async function getStatus() {
 
 export default async function IdHome() {
 
-    const data = await getStatus();
-    console.log('=========obj==========>',data);
+    //const data = await getStatus();
+    //console.log('=========obj==========>',data);
 
     
 
     return (
       <div className="flex flex-col h-[calc(100vh-96px)] items-center place-content-center">
         <div className=" bg-gray-700 text-amber-500 w-50 min-h-[10%] p-8 rounded-lg shadow-xl">
-            {data}
+            Hello
         </div>
         
       </div>
