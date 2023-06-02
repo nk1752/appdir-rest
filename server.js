@@ -20,5 +20,6 @@ app.prepare().then(() => {
     if (err) throw err;
     console.log(`Running on http://${HOST}:${PORT}`);
   })
+  
 
 });
