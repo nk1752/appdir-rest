@@ -1,6 +1,4 @@
-import { Console } from 'console';
 import { cookies } from 'next/headers';
-import LastNameCard from '../components/lastNameCard';
 
 async function getUserByLastName(lastname: String) {
 
@@ -51,8 +49,6 @@ export default async function LastNameHome({
     searchParams:{lastname: String}
 }) {
 
-    console.log(searchParams)
-
     interface User {
         id: number
         lastName: String
@@ -64,7 +60,6 @@ export default async function LastNameHome({
     if (lastname) {
         
         const obj = await getUserByLastName(lastname);   
-        
         const data = obj.map((user: User) =>    
            <li key={user.id.toString()}>
                 <div >
@@ -74,15 +69,10 @@ export default async function LastNameHome({
                     account id: {user.accountId}<br/><br />
                 </div> 
             </li>  
-        )
-        
-
+        ) 
         return (
-            <div className=" bg-black text-green-400 font-mono min-h-screen">
-                
-                
+            <div className=" bg-black text-green-400 font-mono min-h-screen">      
                 <ul>{data}</ul>
-                
             </div>
         )
     }
