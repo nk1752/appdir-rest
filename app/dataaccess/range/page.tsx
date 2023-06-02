@@ -26,8 +26,6 @@ async function getUserByIdRange(id1: String, id2: String) {
     throw new Error("Failed to fetch data");
   }
 
-  //const users = await res.json();
-
   return res.json();
 }
 
@@ -39,27 +37,33 @@ export default async function RangeHome({
   const id1 = searchParams.id1;
   const id2 = searchParams.id2;
 
-  console.log('>>>> searchParams >>>> ',searchParams)
+  console.log(">>>> searchParams >>>> ", searchParams);
 
   if (id1 && id2) {
     const obj = await getUserByIdRange(id1, id2);
 
-    console.log('>>>> obj >>>> ',obj)
+    console.log(">>>> obj >>>> ", obj);
 
     interface User {
-        id: number
-        lastName: String
-        firstName: String
-        accountId: number
-      }
+      id: number;
+      lastName: String;
+      firstName: String;
+      accountId: number;
+    }
 
     const data = obj.map((user: User) => (
       <li key={user.id.toString()}>
-        <li>id: {user.id}</li>
-        <li>first name: {user.firstName}</li>
-        <li>last name: {user.lastName}</li>
-        <li>account id: {user.accountId}</li>
-        <br />
+        <div>
+          id: {user.id}
+          <br />
+          first name: {user.firstName}
+          <br />
+          last name: {user.lastName}
+          <br />
+          account id: {user.accountId}
+          <br />
+          <br />
+        </div>
       </li>
     ));
 
