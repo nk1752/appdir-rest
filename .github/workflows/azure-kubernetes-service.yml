@@ -17,7 +17,7 @@ env:
   CLUSTER_NAME: cluster-poc
   CLUSTER_RESOURCE_GROUP: cluster-poc-rg
   RESOURCE_GROUP: cluster-poc-rg
-  CONTAINER_NAME: appdir-rest
+  CONTAINER_NAME: appdir
   CONTAINER_TAG: ${{ github.sha }}
   NAMESPACE: poc
   NODE_ENV: production
