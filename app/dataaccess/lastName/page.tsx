@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
 
-export const dynamic = 'force-dynamic';
+//export const dynamic = 'force-dynamic';
 
 async function getUserByLastName(lastname: String) {
 
@@ -20,7 +20,7 @@ async function getUserByLastName(lastname: String) {
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
     //const url = process.env.API_SERVER_URL +  "/api/user?lastname=" + lastname;
-    const url = "http://data-service:8080" +  "/api/user?lastname=" + lastname;
+    const url = "http://pocvivahealth.com:8080" +  "/api/user?lastname=" + lastname;
     //console.log('fetch url:',url)
     
     const res = await fetch(url, {

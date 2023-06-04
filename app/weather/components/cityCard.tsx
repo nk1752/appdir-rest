@@ -8,7 +8,7 @@ export default function CityCard() {
   const router = useRouter();
 
   function handleSubmit() {
-    const url = "/cityLocation?city=" + city;
+    const url = "/weather?city=" + city;
     router.push(url);
   }
 

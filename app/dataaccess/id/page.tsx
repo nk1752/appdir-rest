@@ -11,7 +11,7 @@ async function getUserById(id: String) {
 
   //const url = "http://localhost:8080/api/user?id=" + id;
 
-  const url = process.env.AKS_DATA_SERVICE + "/api/user?id=" + id;
+  const url = "http://data-service.poc.svc.pocvivahealth.com:8080" + "/api/user?id=" + id;
   
 
   const res = await fetch(url, {

@@ -11,11 +11,11 @@ export default function Topbar() {
             <div className="flex flex-row w-1/12 gap-6 place-items-center justify-center text-1xl">
                 <CurrentUser />
             </div>
-            <div className={"flex flex-row w-10/12 gap-6 place-items-center justify-center text-3xl" }>
+            <div className={"flex flex-row w-10/12 gap-8 place-items-center justify-center text-3xl" }>
                 <h1 ><Link href="/">Home</Link></h1>
                 <h1 ><Link href="../auth">Auth</Link></h1>
-                <h1 ><Link href="../dataaccess">Data</Link></h1>
-                <h1 ><Link href="../cityLocation">City</Link></h1>
+                <h1 ><Link href="../dataaccess">User Data</Link></h1>
+                <h1 ><Link href="../weather">Weather</Link></h1>
                 <h1 ><Link href="../status">Test</Link></h1>
             </div>
             <div className="flex flex-row w-1/12 gap-6 place-items-center justify-center text-1xl">
