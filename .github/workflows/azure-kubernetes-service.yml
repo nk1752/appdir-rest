@@ -77,7 +77,7 @@ jobs:
         --build-arg API_SERVICE=${{ env.API_SERVICE }} \
         --build-arg PLATFORM=${{ env.PLATFORM }} \
         -g ${{ env.ACR_RESOURCE_GROUP }} \
-        -f ./dockerfiles/Dockerfile.dev .
+        -f ./dockerfiles/Dockerfile.prod .
 
 
   deploy_manifest:
