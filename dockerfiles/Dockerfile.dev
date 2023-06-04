@@ -34,12 +34,13 @@ COPY --from=builder /app/server.js ./server.js
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.js ./next.config.js
 
-ARG NODE_ENV
+ARG HOSTNAME
 ARG PLATFORM
 ARG API_SERVICE
 
+
 # Set envirnoment var
-ENV NODE_ENV=${NODE_ENV}
+ENV HOSTNAME=${HOSTNAME}
 ENV PLATFORM=${PLATFORM}
 ENV API_SERVICE=${API_SERVICE}
 

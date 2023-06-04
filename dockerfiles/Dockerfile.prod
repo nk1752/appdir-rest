@@ -1,4 +1,6 @@
-FROM node:19-alpine AS builder
+FROM node:20-alpine AS base
+
+FROM base AS builder
 
 RUN pwd
 RUN ls
@@ -7,20 +9,19 @@ RUN ls
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install
+# install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
+RUN npm ci
 
 # Copy app files
 COPY ./ ./
-# install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
-RUN npm ci
 # Build the app
 RUN npm run build
 
 
-FROM node:19-alpine
+FROM base
 
-RUN addgroup -S viva && adduser -S devops -G viva
-USER devops
+RUN addgroup -g 1001 -S devops
+RUN adduser -S viva -u 1001 -G devops
 
 RUN echo after user setup
 RUN pwd
@@ -33,6 +34,8 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/server.js ./server.js
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.js ./next.config.js
+
+USER viva
 
 ARG NODE_ENV
 ARG PLATFORM
@@ -47,4 +50,4 @@ ENV API_SERVICE=${API_SERVICE}
 # Expose the port on which the app will be running
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["node", "server.js"]

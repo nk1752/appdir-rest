@@ -21,9 +21,13 @@ kubectl get daemonset
 kubectl describe svc myService
 kubectl get service -A
 
+docker build -t appdir-rest -f ./dockerfiles/Dockerfile.prod --build-arg PLATFORM=aks --build-arg H=data-service --build-arg API_SERVER_URL=http://localhost:8080 --no-cache .
+docker run -p 3000:3000 appdir-rest
+
 
 
 
 
 
 128 Mi = 1.07 Gigabit
+An error occurred in the Server Components render.

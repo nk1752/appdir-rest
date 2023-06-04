@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className=" bg-purple-500">  
+      <body className="bg-gradient-to-r from-gray-900 to-gray-700 text-stone-100 ">  
         <main >
             <Topbar />
             {children}

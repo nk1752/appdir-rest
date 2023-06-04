@@ -19,6 +19,7 @@ export default function SignInHome() {
     const [cognitoUser, setCognitoUser] = useState(null)
 
     async function handleSignIn() {
+        console.log('handleSignIn')
         try {
             const cognitoUser = await Auth.signIn(username, password);
                 setCognitoUser(cognitoUser);
@@ -44,7 +45,7 @@ export default function SignInHome() {
                 })
                 setCookie('currentUser', currentUser)
 
-                //alert("Logged In")  
+                alert("Logged In")  
                 
                 setUser( 'test' );     
 

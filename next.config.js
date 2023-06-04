@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'standalone',
+    //output: 'standalone',
   //distDir: './dist'
   env: {
     nadeem: 'khalid'
