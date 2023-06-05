@@ -8,8 +8,12 @@ export default function IdCard() {
   const router = useRouter();
 
   function handleSubmit() {
-    const url = "/dataaccess/id?id=" + id;
-    router.push(url);
+
+    const params = new URLSearchParams('/dataaccess') 
+    params.set("id", id);
+
+   // const url = "/dataaccess/id?id=" + id;
+    //router.push(url);
   }
 
   return (

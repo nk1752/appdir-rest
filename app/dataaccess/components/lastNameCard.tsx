@@ -7,12 +7,15 @@ import { useSearchParams } from 'next/navigation';
 export default function LastNameCard() {
   const [lastname, setLastname] = useState("");
   const router = useRouter();
-  const searchParams = useSearchParams();
+  //const searchParams = useSearchParams();
 
   function handleSubmit() {
-    //searchParams.set('lastname')
-    const url = "/dataaccess/lastname?lastname=" + lastname;
-    router.push(url);
+    
+    const params = new URLSearchParams('/dataaccess') 
+    params.set("lastname", lastname);
+
+    //const url = "/dataaccess/lastname?lastname=" + lastname;
+    //router.push(url);
   }
 
   return (
